@@ -1,0 +1,12 @@
+com/david/freedom/plutus/entity/LoanInvoice.class
+com/david/freedom/plutus/dao/LoanInvoiceMapper.class
+com/david/freedom/plutus/entity/RegistrationInfoExample$Criteria.class
+com/david/freedom/plutus/entity/LoanInvoiceExample.class
+com/david/freedom/plutus/entity/LoanInvoiceExample$GeneratedCriteria.class
+com/david/freedom/plutus/entity/RegistrationInfoExample$GeneratedCriteria.class
+com/david/freedom/plutus/entity/LoanInvoiceExample$Criterion.class
+com/david/freedom/plutus/entity/RegistrationInfo.class
+com/david/freedom/plutus/entity/RegistrationInfoExample$Criterion.class
+com/david/freedom/plutus/dao/RegistrationInfoMapper.class
+com/david/freedom/plutus/entity/RegistrationInfoExample.class
+com/david/freedom/plutus/entity/LoanInvoiceExample$Criteria.class

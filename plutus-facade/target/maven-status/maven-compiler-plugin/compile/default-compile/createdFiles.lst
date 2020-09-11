@@ -1,0 +1,4 @@
+com/david/freedom/plutus/request/AddRegistratioInfoRequest.class
+com/david/freedom/plutus/request/String2RegistrationConverter.class
+com/david/freedom/plutus/facade/RegistrationFacade.class
+com/david/freedom/plutus/stats/RegistrationStatusEnum.class
