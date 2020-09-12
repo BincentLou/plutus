@@ -47,7 +47,7 @@ public class RegistrationServiceImpl implements RegistrationService {
 
     private void insert2(AddRegistratioInfoRequest registratioInfoRequest) {
 
-        throw new IllegalArgumentException("嘿嘿");
+        throw new IllegalArgumentException("insert2方法发生了异常");
     }
 
     @Override

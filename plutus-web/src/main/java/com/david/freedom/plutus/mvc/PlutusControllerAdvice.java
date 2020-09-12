@@ -1,6 +1,5 @@
 package com.david.freedom.plutus.mvc;
 
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -13,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
  * @Description:${TODO}(这里用一句话描述这个类的作用)
  * @since 1.0
  **/
-@Component
 @ControllerAdvice
 public class PlutusControllerAdvice {
 

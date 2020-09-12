@@ -1,4 +1,6 @@
+com/david/freedom/plutus/mvc/DecodeInterceptor.class
 com/david/freedom/plutus/PlutusApplication.class
+com/david/freedom/plutus/mvc/EncodeAdvice.class
 com/david/freedom/plutus/mvc/PlutusControllerAdvice.class
 com/david/freedom/plutus/web/BaseController$1.class
 com/david/freedom/plutus/web/BaseController$String2EnumEditor.class

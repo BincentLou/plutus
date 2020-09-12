@@ -55,6 +55,11 @@
             <artifactId>mybatis-generator-ext</artifactId>
             <version>1.0.2</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <scope>test</scope>
+        </dependency>
         <!--<dependency>-->
             <!--<groupId>org.springframework.cloud</groupId>-->
             <!--<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>-->

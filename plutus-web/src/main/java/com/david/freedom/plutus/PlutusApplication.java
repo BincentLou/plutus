@@ -20,4 +20,5 @@ public class PlutusApplication {
         new SpringApplicationBuilder(PlutusApplication.class)
                 .run(args);
     }
+
 }

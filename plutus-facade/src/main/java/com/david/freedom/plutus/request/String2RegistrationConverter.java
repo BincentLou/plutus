@@ -26,8 +26,4 @@ public class String2RegistrationConverter implements Converter<String, Registrat
     public JavaType getOutputType(TypeFactory typeFactory) {
         return typeFactory.constructType(RegistrationStatusEnum.class);
     }
-
-    public String2RegistrationConverter() {
-        System.out.println("嘿嘿，黑");
-    }
 }
