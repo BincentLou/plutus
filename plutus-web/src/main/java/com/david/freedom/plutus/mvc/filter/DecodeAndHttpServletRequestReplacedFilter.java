@@ -25,6 +25,11 @@ public class DecodeAndHttpServletRequestReplacedFilter implements Filter {
 
     private final static String PH_PUBLIC_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA7hzaIIol/TvxugKXz+DEbjqXsFYRfEhqvze3+uy7VL3LpqUuqpvzdpxhjpfXyoEHt+F4Z63ACr+oktz0+2qS6jaCqdi8db/rFDEID1kEkRjSRzMDCUyhDncgcRYsdzUGN+qFahT1dPSUvERt5Vt3bocNlvXIaA34ub8X4dqZka0v7pd2raGMpCXQzAEbEVood5VMDApGNj1vRZZ1Zs9fpq8Grurl6FcpTr6j/ZjoVW5NuD06M5aaMdQYxULd0j1Nic8qGMsz/Y8pBUBrLXe6blkNsakuHvnU0PVjEM+gwA+pOWrfKm81awEDUpSdDfix/qflPLtJaFJp2rySOFWfvwIDAQAB";
 
+    public static final String privateKey = "MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCIbv/v1xoCKr3Mu+eG7am9BdeFZcGsXB9R9bF+DJMgQhtZnYosJs89z9KsH5f7Os0sIA2acKJsvrUzE9aPMmv7sZyNX+T/P+B6NuTFUbHZa6P71OlZxXsO3vfLqQ23puXtZpzej9PQI0MAt3qs76Cl0at1CBlgTjhzPZgUrcUq+GAUcr3xWHSr8UnCkeIjK1wATAO36f3rctqG0N0CvKGCpW9BCsPrX/JXZDJzEQilFKd2IGvX9EbcXrVxP6CPgML6snDOFCsMmNEPPi0RVjQp6JREmziTU/vJYmdnhPwUkkMxbUCaPdNaFqTeo6OvIhCSN2gSbDvkjSEILoTtBjklAgMBAAECggEAFz7CQHzno4Lgv6csNWL8zoXWSJYjv1gaxf4UdaNy1cYtnsEmr4sVODTWchkX7egA2QnFB5E1O03q1X8FyXQPzdxfDf9OpuadOnVr2OqoYKDkWZ3W/EKXSttWYM621ZmMBzy6cXkT35yCZ/ba4egZ+OaWTeRJXo01NP1DkhJhS4ayJbQoJ/xLC9MFVwaGDXDFJlZNR2hlPynrlq737EI/bdv6H3C1ed/T7jbDX+0ne4nKsFGyVnruhcsGc/c1H58DKV7zD8SjNHqW5zB6xJD1xPWw5cEkXgDifh/aqR5Kfnj/FIzcfS0UfCK8t9evspgIdk2Tr1Un0B0TrjGTQVUgQQKBgQDENOhamAhBIMkSGffvXPgS6YrubOEkydy1YGankhWLQdJ3KJLErGR7wcRshqBQw3sE4RCr5vL63VN+leLyVfHY85v+w5QTlDcVBB7KQ3eZKp/NZ4wfAjHQKatouWVXkvwCFOX5LWaKOvso0lVb3WdvgsosRejOBpkyYNN/7kOoPQKBgQCyAuL67+6CgCaV+mg37A5znZN3v0fV+jercOn9Dtfh1xl+AEjuLNcbGxZzjg/MLbANX1u2xETQ6K1773Qh8KXqKA3E7XtkbsHbjMO5z2OSp1mEQEj21F8wpQaf1Tb9rHi8JZAa2s64A2JDRKaDYGKob1nt9vRXDHlHZZ5kExB7CQKBgQCvQ8ui0VfeRZkXMFdHXDbFPhU6scvT/vXGl1xbp6TTBnMoufeQ86W23vnFL+UY/+VuEFXCGMVHzlj9JIrbimZFNCdOxgoKC0XA4jNW3jmBeo/Q/gQu1tkEZ5SUMbgTKFswyNY9ZY7JP7KHXoudSgNRmvVZ4wD4uPA0DkYfawjIyQKBgQCUrHSGwP2jYQTZHlsM2cr4JROVX9zPijwUpCnJgSwtI0nXQsWmpyzBJs6JlIz9KutvP8WJ0ELpeGvspwGHl0X7W5ikcPQt3ZNrmxWdiujPA5ZwLoDCJn2aUzpFI/7Zv8LW4UiKJVWhurHHHP81mrrLkrS5WxiX24Mvbl/rlUCegQKBgFWj+PQyet+mqODE+6vy8eQAMdZNGO9cAqYchHRbEMxSXVxQkWB20C/L2WROGVn8r3OZvY0xluDzksmPDdtEch99ExzRmci2UPFpwOng2i1JheYBbKDdoFY764Gk//BoBQnF8s6hnZzcLTJxoXm7iNR+NQ/E9R/S/kqEleXhRqRY";
+
+    public static final String publicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiG7/79caAiq9zLvnhu2pvQXXhWXBrFwfUfWxfgyTIEIbWZ2KLCbPPc/SrB+X+zrNLCANmnCibL61MxPWjzJr+7GcjV/k/z/gejbkxVGx2Wuj+9TpWcV7Dt73y6kNt6bl7Wac3o/T0CNDALd6rO+gpdGrdQgZYE44cz2YFK3FKvhgFHK98Vh0q/FJwpHiIytcAEwDt+n963LahtDdAryhgqVvQQrD61/yV2QycxEIpRSndiBr1/RG3F61cT+gj4DC+rJwzhQrDJjRDz4tEVY0KeiURJs4k1P7yWJnZ4T8FJJDMW1Amj3TWhak3qOjryIQkjdoEmw75I0hCC6E7QY5JQIDAQAB";
+
+
     JacksonJsonParser jacksonParser = new JacksonJsonParser();
 
     @Override
@@ -43,10 +48,10 @@ public class DecodeAndHttpServletRequestReplacedFilter implements Filter {
             Map<String, Object> map = jacksonParser.parseMap(content);
             String params = (String) map.get("param");
             //TODO 解密
-            String trueParams = RSA2048Util.rsaDecipher(params, PH_PRIVATE_KEY);
+            String trueParams = RSA2048Util.rsaDecipher(params, privateKey);
             System.out.println(trueParams);
 
-            requestWrapper = new RequestReplaceWapper((HttpServletRequest) servletRequest,"{\"registrationStatusEnum\":\"正常\",\"telephone\":\"12345677654\",\"cretNo\":\"234576543456\",\"userName\":\"louwb\"}");
+            requestWrapper = new RequestReplaceWapper((HttpServletRequest) servletRequest,trueParams);
         }
 
         //获取请求中的流如何，将取出来的字符串，再次转换成流，然后把它放入到新request对象中。

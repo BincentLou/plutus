@@ -27,8 +27,7 @@ public class PlutusMvcConfigurar implements WebMvcConfigurer {
     public FilterRegistrationBean requestReplaceWapper(){
         FilterRegistrationBean registration = new FilterRegistrationBean();
         registration.setFilter(new DecodeAndHttpServletRequestReplacedFilter());
-        registration.addUrlPatterns("/*");
-        registration.addInitParameter("paramName", "paramValue");
+        registration.addUrlPatterns("/encodedRequest","/anotherEncodedRequest");
         registration.setName("httpServletRequestReplacedFilter");
         registration.setOrder(1);
         return registration;

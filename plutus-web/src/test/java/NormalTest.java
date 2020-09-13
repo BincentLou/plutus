@@ -1,9 +1,13 @@
+import com.david.freedom.plutus.decode.RSA2048Util;
+import com.david.freedom.plutus.decode.RSAKeyFactory;
+import com.david.freedom.plutus.mvc.filter.DecodeAndHttpServletRequestReplacedFilter;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.client.methods.HttpPost;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,11 +20,33 @@ import java.util.Map;
  **/
 public class NormalTest {
 
-    public static void main(String[] args) throws IOException {
 
+    public static void main(String[] args) throws JSONException {
+
+//        getKeyPair();
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("userName","娄文斌");
+        jsonObject.put("address","南京紫金保险");
+        String jsonString = jsonObject.toString();
+        String encodeString = RSA2048Util.rsaEncrypt(jsonString, DecodeAndHttpServletRequestReplacedFilter.publicKey);
+        System.out.println(encodeString);
+    }
+
+    private static void getKeyPair() throws NoSuchAlgorithmException {
         String text =  Base64.getEncoder().encodeToString("HABX:9n6S5UwZ".getBytes());
         System.out.println(text);
 
+//        httpPost();
+
+        RSAKeyFactory.KeyPairObject keyPair = RSAKeyFactory.getKeyPair();
+        System.out.println(keyPair.getPrivateKey());
+        System.out.println("------------------------------");
+        System.out.println(keyPair.getPublicKey());
+    }
+
+
+    private static void httpPost() throws JsonProcessingException {
         HttpPost httpPost = new HttpPost("http://127.0.0.1:8080/addRegistrationInfo");
 
 //        {
