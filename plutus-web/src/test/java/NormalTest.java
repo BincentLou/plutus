@@ -1,8 +1,5 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -45,15 +42,18 @@ public class NormalTest {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+//        0qwWtnhOkCW1+/3eG68xDjeZzPZjpXhjjxP9E3FJU8PyCdA8QKdRBkaZBPRD3Jzcj89SSD8ej2lk
+//        22L3PGD8wq03fJ/TWzY0BYHG0BnqkMH48FOO4YQk8z4/1o+n/yHx48pITE5Hj5AmZ03gBV5mMvOz
+//        9yx/ziDAruef+XRFCC3CrzN6JDbgsJr9nQBIlpSVdrA02ObMH+mpKJPqyVME2sbl5zzo+lbNzERq
+//        tPoMGGAxqh5iVP7YdFgvywNEHqezFlr133b/Ow==
+        System.out.println(objectMapper.writeValueAsString(map));
 
-
-
-        StringEntity stringEntity = new StringEntity(map.toString(),"utf-8");
-        stringEntity.setContentType("application/json;charset=UTF-8");
-        httpPost.addHeader("Authorization","Basic SEFCWDo5bjZTNVV3Wg==");
-        httpPost.setEntity(stringEntity);
-        CloseableHttpClient httpClient = HttpClients.createDefault();
-        httpClient.execute(httpPost);
-        httpClient.close();
+//        StringEntity stringEntity = new StringEntity(map.toString(),"utf-8");
+//        stringEntity.setContentType("application/json;charset=UTF-8");
+//        httpPost.addHeader("Authorization","Basic SEFCWDo5bjZTNVV3Wg==");
+//        httpPost.setEntity(stringEntity);
+//        CloseableHttpClient httpClient = HttpClients.createDefault();
+//        httpClient.execute(httpPost);
+//        httpClient.close();
     }
 }

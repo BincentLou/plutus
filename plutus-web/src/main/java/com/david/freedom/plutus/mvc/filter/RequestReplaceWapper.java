@@ -6,10 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 /**
  * @version $Id: null.java, v 1.0 2020/9/11 7:35 PM david Exp $$
@@ -21,27 +19,36 @@ public class RequestReplaceWapper extends HttpServletRequestWrapper {
 
     private byte[] body;
 
+    public byte[] getBody() {
+        return body;
+    }
 
-    public RequestReplaceWapper(HttpServletRequest request) {
+    public RequestReplaceWapper setBody(byte[] body) {
+        this.body = body;
+        return this;
+    }
+
+    public RequestReplaceWapper(HttpServletRequest request, String content){
         super(request);
-        System.out.println("新建一个Wrapper");
-        body = getBodyString(request).getBytes(Charset.forName("UTF-8"));
+        body = content.getBytes(StandardCharsets.UTF_8);
     }
 
 
     @Override
-    public BufferedReader getReader() throws IOException {
+    public BufferedReader getReader() {
         return new BufferedReader(new InputStreamReader(getInputStream()));
     }
 
+
+
     @Override
-    public ServletInputStream getInputStream() throws IOException {
+    public ServletInputStream getInputStream(){
         final ByteArrayInputStream bais = new ByteArrayInputStream(body);
 
         return new ServletInputStream() {
 
             @Override
-            public int read() throws IOException {
+            public int read() {
                 return bais.read();
             }
 
@@ -62,36 +69,5 @@ public class RequestReplaceWapper extends HttpServletRequestWrapper {
         };
     }
 
-    private String getBodyString(HttpServletRequest request) {
-        StringBuilder sb = new StringBuilder();
-        InputStream inputStream = null;
-        BufferedReader reader = null;
-        try {
-            inputStream = request.getInputStream();
-            reader = new BufferedReader(new InputStreamReader(inputStream, Charset.forName("UTF-8")));
-            String line = "";
-            while ((line = reader.readLine()) != null) {
-                sb.append(line);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (inputStream != null) {
-                try {
-                    inputStream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (reader != null) {
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        return sb.toString();
 
-    }
 }

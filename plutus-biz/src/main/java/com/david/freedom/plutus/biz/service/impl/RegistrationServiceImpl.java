@@ -40,7 +40,7 @@ public class RegistrationServiceImpl implements RegistrationService {
         record.setCreateTime(new Date());
         record.setUpdateTime(new Date());
         record.setStatus(Short.parseShort("1"));
-//        insert2(registratioInfoRequest);
+        insert2(registratioInfoRequest);
         return registrationInfoMapper.insert(record);
 
     }

@@ -19,7 +19,8 @@ public class PlutusControllerAdvice {
     public void resolveException(HttpServletRequest request, HttpServletResponse response,Exception e){
 
         System.out.println("发生异常");
-        response.setStatus(HttpServletResponse.SC_OK);
+        System.out.println(e.getMessage());
+        response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 
     }
 }

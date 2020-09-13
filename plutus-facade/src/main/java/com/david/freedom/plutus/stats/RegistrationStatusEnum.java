@@ -1,8 +1,6 @@
 package com.david.freedom.plutus.stats;
 
 import com.david.freedom.plutus.common.states.BaseEnum;
-import com.david.freedom.plutus.request.String2RegistrationConverter;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
  * @version $Id: null.java, v 1.0 2020/9/4 10:30 AM david Exp $$
@@ -11,7 +9,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
  * @since 1.0
  **/
 
-@JsonDeserialize(converter = String2RegistrationConverter.class)
+//@JsonDeserialize(converter = String2RegistrationConverter.class)
 public enum RegistrationStatusEnum implements BaseEnum {
     NORMAL("1","正常"),
 

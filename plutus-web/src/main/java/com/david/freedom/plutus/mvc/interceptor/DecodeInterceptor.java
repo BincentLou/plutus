@@ -1,16 +1,11 @@
 package com.david.freedom.plutus.mvc.interceptor;
 
-import org.springframework.util.StreamUtils;
-import org.springframework.util.StringUtils;
+import com.david.freedom.plutus.decode.Base64DecodeUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-import java.util.Base64;
-import java.util.Map;
 
 /**
  * @version $Id: null.java, v 1.0 2020/9/11 3:16 PM david Exp $$
@@ -20,15 +15,13 @@ import java.util.Map;
  **/
 public class DecodeInterceptor implements HandlerInterceptor {
 
+
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         System.out.println(" 前置处理");
-//        decodeUserNameAndPass(request);
+        decodeUserNameAndPass(request);
 
-        Map<String, String[]> map = request.getParameterMap();
-        Object aa = request.getAttribute("param");
-        String string = StreamUtils.copyToString(request.getInputStream(), StandardCharsets.UTF_8);
-        System.out.println(string);
         return true;
     }
 
@@ -39,18 +32,13 @@ public class DecodeInterceptor implements HandlerInterceptor {
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+        // ex 是否为null
         System.out.println("完成");
+        System.out.println(response.getStatus());
     }
 
     private void decodeUserNameAndPass(HttpServletRequest request) {
         String authrization = request.getHeader("Authorization");
-        if(StringUtils.isEmpty(authrization)){
-            System.out.println("authroization 为空");
-        }else {
-            String[] authArr = authrization.split(" ");
-            String info = authArr.length>=2? authArr[1]:null;
-            String infode = Arrays.toString(Base64.getDecoder().decode(info));
-            System.out.println(infode);
-        }
+        Base64DecodeUtils.UserAndPassword userInfo = Base64DecodeUtils.decodeUserAndPassword(authrization);
     }
 }

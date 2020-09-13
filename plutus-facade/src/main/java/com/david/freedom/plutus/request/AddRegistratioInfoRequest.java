@@ -2,6 +2,7 @@ package com.david.freedom.plutus.request;
 
 import com.david.freedom.plutus.common.request.BaseRequest;
 import com.david.freedom.plutus.stats.RegistrationStatusEnum;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import javax.validation.constraints.NotNull;
 
@@ -35,7 +36,7 @@ public class AddRegistratioInfoRequest extends BaseRequest {
     private String cretNo;
 
     @NotNull(message = "注册类型不能为空")
-//    @JsonDeserialize(converter = String2RegistrationConverter.class)
+    @JsonDeserialize(converter = String2RegistrationConverter.class)
     private RegistrationStatusEnum registrationStatusEnum;
 
     public String getUserName() {
