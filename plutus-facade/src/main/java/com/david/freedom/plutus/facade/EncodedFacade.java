@@ -1,7 +1,8 @@
 package com.david.freedom.plutus.facade;
 
-import com.david.freedom.plutus.request.ThridPathRequest;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.david.freedom.plutus.request.ThridPathRequest;
 
 /**
  * @version $Id: null.java, v 1.0 2020/9/13 10:49 AM david Exp $$
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  **/
 public interface EncodedFacade {
 
-    @RequestMapping("/encodedRequest")
+    @RequestMapping("/cop/paph/dispatcher/high")
     void encodedRequest(ThridPathRequest thridPathRequest);
 
     @RequestMapping("/anotherEncodedRequest")

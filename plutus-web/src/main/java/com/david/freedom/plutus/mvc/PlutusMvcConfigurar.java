@@ -1,12 +1,13 @@
 package com.david.freedom.plutus.mvc;
 
-import com.david.freedom.plutus.mvc.filter.DecodeAndHttpServletRequestReplacedFilter;
-import com.david.freedom.plutus.mvc.interceptor.DecodeInterceptor;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import com.david.freedom.plutus.mvc.filter.DecodeAndHttpServletRequestReplacedFilter;
+import com.david.freedom.plutus.mvc.interceptor.DecodeInterceptor;
 
 /**
  * @version $Id: null.java, v 1.0 2020/9/11 3:41 PM david Exp $$
@@ -27,7 +28,7 @@ public class PlutusMvcConfigurar implements WebMvcConfigurer {
     public FilterRegistrationBean requestReplaceWapper(){
         FilterRegistrationBean registration = new FilterRegistrationBean();
         registration.setFilter(new DecodeAndHttpServletRequestReplacedFilter());
-        registration.addUrlPatterns("/encodedRequest","/anotherEncodedRequest");
+        registration.addUrlPatterns("/cop/paph/dispatcher/*");
         registration.setName("httpServletRequestReplacedFilter");
         registration.setOrder(1);
         return registration;

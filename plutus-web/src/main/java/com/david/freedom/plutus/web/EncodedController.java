@@ -1,10 +1,12 @@
 package com.david.freedom.plutus.web;
 
-import com.david.freedom.plutus.facade.EncodedFacade;
-import com.david.freedom.plutus.request.ThridPathRequest;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.david.freedom.plutus.common.anno.PAPHCallApi;
+import com.david.freedom.plutus.facade.EncodedFacade;
+import com.david.freedom.plutus.request.ThridPathRequest;
 
 /**
  * @version $Id: null.java, v 1.0 2020/9/13 11:06 AM david Exp $$
@@ -17,6 +19,7 @@ public class EncodedController implements EncodedFacade {
 
 
     @Override
+    @PAPHCallApi
     public void encodedRequest(@RequestBody @Validated ThridPathRequest thridPathRequest) {
         System.out.println(thridPathRequest);
     }

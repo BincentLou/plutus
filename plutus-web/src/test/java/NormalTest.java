@@ -1,16 +1,19 @@
+import java.io.Serializable;
+import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.http.client.methods.HttpPost;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.alibaba.fastjson.JSON;
 import com.david.freedom.plutus.decode.RSA2048Util;
 import com.david.freedom.plutus.decode.RSAKeyFactory;
 import com.david.freedom.plutus.mvc.filter.DecodeAndHttpServletRequestReplacedFilter;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.http.client.methods.HttpPost;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.security.NoSuchAlgorithmException;
-import java.util.Base64;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @version $Id: null.java, v 1.0 2020/9/4 12:31 PM david Exp $$
@@ -23,8 +26,15 @@ public class NormalTest {
 
     public static void main(String[] args) throws JSONException {
 
-//        getKeyPair();
+        // int[] arras = new int[2];
+        // Class clazs = arras.getClass();
+        // System.out.println(clazs);
+        Object user = new User("娄文斌","浙江与杭州");
+        System.out.println(JSON.toJSONString(user));
 
+    }
+
+    private static void encodTest() throws JSONException {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("userName","娄文斌");
         jsonObject.put("address","南京紫金保险");
@@ -81,5 +91,41 @@ public class NormalTest {
 //        CloseableHttpClient httpClient = HttpClients.createDefault();
 //        httpClient.execute(httpPost);
 //        httpClient.close();
+    }
+
+    static class User implements Serializable{
+        private static final long serialVersionUID = -5784733683967309613L;
+
+        private String userName;
+
+        private String address;
+
+        public String getUserName() {
+            return userName;
+        }
+
+        public User setUserName(String userName) {
+            this.userName = userName;
+            return this;
+        }
+
+        public String getAddress() {
+            return address;
+        }
+
+        public User setAddress(String address) {
+            this.address = address;
+            return this;
+        }
+
+        public User(String userName, String address) {
+            this.userName = userName;
+            this.address = address;
+        }
+
+        @Override
+        public String toString() {
+            return "User{" + "userName='" + userName + '\'' + ", address='" + address + '\'' + '}';
+        }
     }
 }
