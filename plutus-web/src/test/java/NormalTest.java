@@ -1,14 +1,15 @@
 import java.io.Serializable;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.http.client.methods.HttpPost;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.alibaba.fastjson.JSON;
 import com.david.freedom.plutus.decode.RSA2048Util;
 import com.david.freedom.plutus.decode.RSAKeyFactory;
 import com.david.freedom.plutus.mvc.filter.DecodeAndHttpServletRequestReplacedFilter;
@@ -29,8 +30,13 @@ public class NormalTest {
         // int[] arras = new int[2];
         // Class clazs = arras.getClass();
         // System.out.println(clazs);
-        Object user = new User("娄文斌","浙江与杭州");
-        System.out.println(JSON.toJSONString(user));
+        // Object user = new User("娄文斌","浙江与杭州");
+        // System.out.println(JSON.toJSONString(user));
+
+        List<String> a = null;
+
+        ArrayList<String> b = new ArrayList<>(a);
+        System.out.println(b);
 
     }
 
