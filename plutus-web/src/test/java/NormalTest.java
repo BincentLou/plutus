@@ -1,9 +1,7 @@
 import java.io.Serializable;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
 import java.util.Base64;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.apache.http.client.methods.HttpPost;
@@ -27,17 +25,24 @@ public class NormalTest {
 
     public static void main(String[] args) throws JSONException {
 
-        // int[] arras = new int[2];
-        // Class clazs = arras.getClass();
-        // System.out.println(clazs);
-        // Object user = new User("娄文斌","浙江与杭州");
-        // System.out.println(JSON.toJSONString(user));
+        int deep = 0;
+        int methods = caculate(10,deep);
 
-        List<String> a = null;
+        System.out.println(methods);
+    }
 
-        ArrayList<String> b = new ArrayList<>(a);
-        System.out.println(b);
-
+    private static int caculate(int i, int deep) {
+        if(deep>100){
+            throw new IllegalArgumentException("");
+        }
+        if(i==2){
+            return 2;
+        }
+        if(i==1){
+            return 1;
+        }
+        deep++;
+        return caculate(i-1, deep)+caculate(i-2, deep);
     }
 
     private static void encodTest() throws JSONException {
