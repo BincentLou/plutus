@@ -1,9 +1,12 @@
 import java.io.Serializable;
 import java.security.NoSuchAlgorithmException;
+import java.text.ParseException;
 import java.util.Base64;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.lang3.time.DateFormatUtils;
 import org.apache.http.client.methods.HttpPost;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,16 +26,20 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class NormalTest {
 
 
-    public static void main(String[] args) throws JSONException {
+    public static void main(String[] args) throws ParseException {
 
-        int deep = 0;
-        int methods = caculate(10,deep);
+        Date date = new Date();
+        long timstamp = date.getTime();
+        // Integer timeInt = Integer.valueOf(String.valueOf(DateUtils.parseDate(DateFormatUtils.format(timstamp,"YYYY-MM-dd"),"YYYY-MM-dd").getTime()));
+        Integer timeInt = new Integer("132131321321");
+        String  dateStr = DateFormatUtils.format(Long.valueOf(timeInt),"YYYY-MM-dd");
+        System.out.println(dateStr);
+        // 1600358400000
 
-        System.out.println(methods);
     }
 
     private static int caculate(int i, int deep) {
-        if(deep>100){
+        if(deep>8){
             throw new IllegalArgumentException("");
         }
         if(i==2){
@@ -104,7 +111,7 @@ public class NormalTest {
 //        httpClient.close();
     }
 
-    static class User implements Serializable{
+    static class User implements Serializable,Comparable<User>{
         private static final long serialVersionUID = -5784733683967309613L;
 
         private String userName;
@@ -137,6 +144,12 @@ public class NormalTest {
         @Override
         public String toString() {
             return "User{" + "userName='" + userName + '\'' + ", address='" + address + '\'' + '}';
+        }
+
+
+        @Override
+        public int compareTo(User o) {
+            return 0;
         }
     }
 }
