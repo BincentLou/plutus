@@ -8,41 +8,61 @@ package datastructure;
 public class QuiklySort {
 
     public static void main(String[] args) {
-        // 递归-把数组分成两部分
-        // 合并两部分的时候保证有序
-
-        int[] arr = new int[]{4,2,6,4,7,9,0,8,3};
-
-        int[] result = merge_sort(arr);
-
-        for(int i:result){
-            System.out.println(i);
+       // 选取中间值，把数组分为两部分，左边的比中间值小，右边的比中间值大
+        // 递归分别处理左边的数据和右边的数据
+        int[] arr = new int[]{4,6,3,7,2,8,1,9};
+        sort(arr,0,arr.length-1);
+        for(int a:arr){
+            System.out.print(a);
         }
     }
-    // 归并排序（Java-递归版）
-    static void merge_sort_recursive(int[] arr, int[] result, int start, int end) {
-        if (start >= end)
+
+    private static void sort(int[] arr, int p, int r) {
+        if(p >= r){
             return;
-        int len = end - start, mid = (len >> 1) + start;
-        int start1 = start, end1 = mid;
-        int start2 = mid + 1, end2 = end;
-        merge_sort_recursive(arr, result, start1, end1);
-        merge_sort_recursive(arr, result, start2, end2);
-        int k = start;
-        while (start1 <= end1 && start2 <= end2)
-            result[k++] = arr[start1] < arr[start2] ? arr[start1++] : arr[start2++];
-        while (start1 <= end1)
-            result[k++] = arr[start1++];
-        while (start2 <= end2)
-            result[k++] = arr[start2++];
-        for (k = start; k <= end; k++)
-            arr[k] = result[k];
+        }
+        int q = partition(arr, p, r);
+        sort(arr,p,q-1);
+        sort(arr,q+1,r);
     }
 
-    public static int[] merge_sort(int[] arr) {
-        int len = arr.length;
-        int[] result = new int[len];
-        merge_sort_recursive(arr, result, 0, len - 1);
-        return result;
+    private static int partition(int[] arr, int p, int r) {
+        int key = arr[r];
+        int i = p,j = r;
+        while (i<j){
+            while (arr[i]<=key&&i<j){
+                i++;
+            }
+            while(arr[j]>=key&&i<j){
+                j--;
+            }
+            if(i<j){
+                int temp = arr[i];
+                arr[i]= arr[j];
+                arr[j] = temp;
+            }
+
+        }
+        int temp = arr[r];
+        arr[r]= arr[i];
+        arr[i] = temp;
+        return i;
     }
+
+    // private static int partition(int[] arr, int p, int r) {
+    //     int key = arr[r];
+    //     int i = p;
+    //     for(int j = p;j<r;j++){
+    //         if(arr[j]< key){
+    //             int temp = arr[i];
+    //             arr[i] = arr[j];
+    //             arr[j] = temp;
+    //             i++;
+    //         }
+    //     }
+    //     int temp = arr[r];
+    //     arr[r] = arr[i];
+    //     arr[i] = temp;
+    //     return i;
+    // }
 }
