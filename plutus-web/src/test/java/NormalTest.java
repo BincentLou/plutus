@@ -2,11 +2,9 @@ import java.io.Serializable;
 import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
 import java.util.Base64;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.commons.lang3.time.DateFormatUtils;
 import org.apache.http.client.methods.HttpPost;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,14 +26,65 @@ public class NormalTest {
 
     public static void main(String[] args) throws ParseException {
 
-        Date date = new Date();
-        long timstamp = date.getTime();
-        // Integer timeInt = Integer.valueOf(String.valueOf(DateUtils.parseDate(DateFormatUtils.format(timstamp,"YYYY-MM-dd"),"YYYY-MM-dd").getTime()));
-        Integer timeInt = new Integer("132131321321");
-        String  dateStr = DateFormatUtils.format(Long.valueOf(timeInt),"YYYY-MM-dd");
-        System.out.println(dateStr);
-        // 1600358400000
+        int[] arr = new int[]{4,2,6,4,7,9,0,8,3};
+        arr =  sort(arr);
+        for(int i :arr){
+            System.out.println(i);
+        }
+    }
 
+
+    /**
+     * 递归的的排序算法
+     */
+    private static int[] sort(int[] arr) {
+       if(arr.length == 1){
+           return arr;
+       }
+       int[] left = new int[arr.length/2];
+       int[] right = new int[arr.length-left.length];
+
+       // copy(arr,left);
+        //分解两个
+       int middle = arr.length/2;
+
+       // return merge(sort(arr,begin,middle),sort(arr,middle+1,end));
+        return null;
+    }
+
+    // private static void copy(int[] arr, int[] left) {
+    //     for()
+    // }
+
+    private static int[] merge(int[] left, int[] right) {
+        int[] temp = new int[left.length+right.length];
+
+        int i = 0;
+        int j = 0;
+        int k = 0;
+        while(j< left.length&& k< right.length){
+            if(left[j]<=right[k]){
+                temp[i] = left[j];
+                i++;
+                j++;
+            }else {
+                temp[i] = right[k];
+                i++;
+                k++;
+            }
+        }
+        //判断谁没遍历完成
+        if(j<left.length-1){
+            temp[i] = left[j];
+            i++;
+            j++;
+        }
+        if(k<right.length-1){
+            temp[i] = right[k];
+            i++;
+            k++;
+        }
+        return temp;
     }
 
     private static int caculate(int i, int deep) {
